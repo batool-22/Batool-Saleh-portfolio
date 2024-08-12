@@ -1,0 +1,216 @@
+.navbar-section {
+  width: 100%;
+  position: fixed;
+  height: 60px;
+  top: 25px;
+  left: 0;
+  z-index: 10;
+  padding: 0 30px;
+  overflow: hidden;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-section .logo {
+  padding: 15px 0;
+}
+.navbar-section .logo a {
+  font-size: 28px;
+  color: #302e4d;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  position: relative;
+  padding: 0 10px;
+  line-height: 45px;
+}
+
+.navbar-section .logo a span {
+}
+.navbar-section .logo a::before {
+  content: " ";
+  height: 15px;
+  width: 15px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.navbar-section .logo a::after {
+  content: " ";
+  height: 15px;
+  width: 15px;
+
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.navbar-section .nav-tog {
+  height: 40px;
+  width: 45px;
+  border: 1px solid #d4d4e3;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #fdf9ff;
+  /* Positioning for toggle button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.navbar-section .nav-tog span {
+  height: 2px;
+  width: 18px;
+  display: inline-block;
+  position: relative;
+}
+.navbar-section .nav-tog.open span {
+  background: transparent;
+}
+
+.navbar-section .nav-tog span::before {
+  content: "";
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  top: -6px;
+  left: 0;
+}
+.navbar-section .nav-tog.open span::before {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-section .nav-tog span::after {
+  content: "";
+  height: 2px;
+  width: 18px;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}
+
+.navbar-section .nav-tog.open span::after {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 0;
+}
+.navbar-section .nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar-section .nav li {
+  display: block;
+}
+
+.navbar-section .nav li a {
+  font-size: 15px;
+  font-weight: 600;
+  color: #302e4d;
+  text-decoration: none;
+  line-height: 60px;
+  display: block;
+  padding: 0 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar-section .nav li a:not(.active):hover {
+  padding-left: 5px;
+}
+
+.navbar-section .nav li a .fa {
+  margin-right: 5px;
+}
+
+.navbar-section .copyright {
+  font-size: 13px;
+  color: #7d7d7d;
+}
+@media (max-width: 768px) {
+  .navbar-section {
+    display: none; /* Hide navbar on screens smaller than 768px */
+  }
+
+  .navbar-toggle {
+    display: block; /* Show the toggle button */
+  }
+}
+
+@media (max-width: 1199px) {
+  .section .container {
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .navbar-section .nav-tog {
+    display: -ms-flexbox;
+    display: flex;
+    left: 30px;
+  }
+  .navbar-section .nav-tog.open {
+    left: 300px;
+  }
+  .navbar-section {
+    left: -270px;
+  }
+  .navbar-section.open {
+    left: 0px;
+  }
+  .section {
+    left: 0;
+  }
+  .section.open {
+    left: 270px;
+  }
+  .about .about-content .personal .info-i p span {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media (max-width: 991px) {
+  .blog .blog-item,
+  .portfolio .portfolio-l,
+  .service .service-i {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact .contact-form .col-6,
+  .blog .blog-item,
+  .service .service-i,
+  .about .about-content .exp,
+  .about .about-content .edu,
+  .about .about-content .skills,
+  .about .about-content .personal {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .portfolio .portfolio-filter button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contact .contact-info-item,
+  .portfolio .portfolio-l {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

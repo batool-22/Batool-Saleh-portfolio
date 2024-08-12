@@ -1,0 +1,137 @@
+.home {
+  min-height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+.home .intro {
+  text-align: center;
+}
+
+.home .container {
+  position: relative;
+  z-index: 1; /* Ensure content is above the particles */
+}
+
+#tsparticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Ensure particles are behind the content */
+}
+.home .intro img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 8px solid #ffffff;
+}
+
+.home .intro h1 {
+  font-size: 30px;
+  color: #302e4d;
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  margin: 20px 0 5px;
+}
+
+.home .intro p {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+  line-height: 20px;
+  color: #504e70;
+  font-family: "Montserrat", sans-serif;
+}
+
+.home .intro .social {
+  margin-top: 25px;
+}
+
+.home .intro .social a {
+  height: 35px;
+  width: 35px;
+  display: inline-block;
+  text-align: center;
+  line-height: 35px;
+  color: #ffffff;
+  margin: 0 4px;
+  border-radius: 50%;
+  text-decoration: none;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.home .intro .social a:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+@media (max-width: 1199px) {
+  .section .container {
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .navbar-section .nav-tog {
+    display: -ms-flexbox;
+    display: flex;
+    left: 30px;
+  }
+  .navbar-section .nav-tog.open {
+    left: 300px;
+  }
+  .navbar-section {
+    left: -270px;
+  }
+  .navbar-section.open {
+    left: 0px;
+  }
+  .section {
+    left: 0;
+  }
+  .section.open {
+    left: 270px;
+  }
+  .about .about-content .personal .info-i p span {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media (max-width: 991px) {
+  .blog .blog-item,
+  .portfolio .portfolio-l,
+  .service .service-i {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact .contact-form .col-6,
+  .blog .blog-item,
+  .service .service-i,
+  .about .about-content .exp,
+  .about .about-content .edu,
+  .about .about-content .skills,
+  .about .about-content .personal {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .portfolio .portfolio-filter button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 575px) {
+  .contact .contact-info-item,
+  .portfolio .portfolio-l {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

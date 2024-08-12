@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { useState, useEffect } from "react";
+import ParticleBg from "./Backgroundmotion/ParticleBg";
+import ProjectSections from "./ProjectSections/ProjectSections";
+import StyleSwitcher from "./StyleSwitcher/StyleSwitcher";
 
 function App() {
+  const [isVisible, setIsVisible] = useState(true);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ParticleBg />
+      <StyleSwitcher />
+      <ProjectSections />
+      <div className={`preloader ${!isVisible ? "opacity-0" : ""}`}>
+        {" "}
+        <div class="loader"></div>
+      </div>
     </div>
   );
 }
