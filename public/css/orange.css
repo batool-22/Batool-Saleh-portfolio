@@ -1,9 +1,9 @@
-.batool .logo a::before {
+.navbar-section .logo a::before {
   border-top: 4px solid #fa5b0f;
   border-left: 4px solid #fa5b0f;
 }
 
-.batool .logo a::after {
+.navbar-section .logo a::after {
   border-right: 4px solid #fa5b0f;
   border-bottom: 4px solid #fa5b0f;
 }
@@ -17,11 +17,12 @@ body.dark .portfolio .portfolio-filter button.active,
 .portfolio .portfolio-filter button.active,
 .service .service-i .service-item-inner .icon .fa,
 .about .about-content .about-text h3 span,
-.batool .logo a span,
-body.dark .batool .nav li a:hover,
-body.dark .batool .nav li a.active,
-.batool .nav li a:hover,
-.batool .nav li a.active {
+.navbar-section .logo a span,
+body.dark .navbar-section .nav li a:hover,
+body.dark .navbar-section .nav li a.active,
+.navbar-section .nav li a:hover,
+.navbar-section .nav li a.active,
+.arrow-container {
   color: #fa5b0f;
 }
 
@@ -33,10 +34,11 @@ body.dark .batool .nav li a.active,
 .btn,
 .section-t h2::before,
 .section-t h2::after,
-.batool .nav-tog span,
-.batool .nav-tog span::before,
-.batool .nav-tog span::after,
-.home .intro .social a {
+.navbar-section .nav-tog span,
+.navbar-section .nav-tog span::before,
+.navbar-section .nav-tog span::after,
+.home .intro .social a,
+.arrow-icon {
   background: #fa5b0f;
 }
 

@@ -15,7 +15,6 @@
 }
 
 .style-switcher.open {
-  -webkit-transform: translateX(0%);
   transform: translateX(0%);
 }
 
@@ -68,4 +67,10 @@
 .style-switcher .toggle-style-switcher .fa {
   font-size: 20px;
   line-height: 43px;
+}
+
+.switcher-light {
+  font-size: 14px;
+  padding-left: 8px;
+  font-weight: 400;
 }

@@ -70,3 +70,11 @@
   height: 50px;
   padding: 0 50px;
 }
+@media (max-width: 575px) {
+  .contact .contact-info-item,
+  .portfolio .portfolio-l {
+    flex: 0 0 100%;
+    -ms-flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

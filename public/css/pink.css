@@ -21,7 +21,8 @@ body.dark .portfolio .portfolio-filter button.active,
 body.dark .navbar-section .nav li a:hover,
 body.dark .navbar-section .nav li a.active,
 .navbar-section .nav li a:hover,
-.navbar-section .nav li a.active {
+.navbar-section .nav li a.active,
+.arrow-container {
   color: #ec1839;
 }
 
@@ -36,7 +37,8 @@ body.dark .navbar-section .nav li a.active,
 .navbar-section .nav-tog span,
 .navbar-section .nav-tog span::before,
 .navbar-section .nav-tog span::after,
-.home .intro .social a {
+.home .intro .social a,
+.arrow-icon {
   background: #ec1839;
 }
 

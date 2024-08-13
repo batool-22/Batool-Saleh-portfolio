@@ -2,9 +2,9 @@
   padding-bottom: 40px;
 }
 .service .service-i {
-  -ms-flex: 0 0 33.33%;
-  flex: 0 0 33.33%;
-  max-width: 33.33%;
+  -ms-flex: 0 0 20.33%;
+  flex: 0 0 20.33%;
+  max-width: 20.33%;
   margin-bottom: 30px;
 }
 
@@ -126,4 +126,24 @@
     -ms-flex: 0 0 100%;
     max-width: 100%;
   }
+}
+
+.tool {
+  height: 4rem;
+  width: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: "center";
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #ddd;
+  overflow: "hidden";
+}
+
+.row-style {
+  margin-left: 8px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
