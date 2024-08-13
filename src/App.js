@@ -5,7 +5,7 @@ import ProjectSections from "./Component/ProjectSections/ProjectSections";
 import StyleSwitcher from "./Component/StyleSwitcher/StyleSwitcher";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("dark");
   const [isVisible, setIsVisible] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {

@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 import { motion } from "framer-motion";
-import personalPhoto from "../../assets/images/personalPhoto.jpg";
+import personalPhoto2 from "../../assets/images/personalPhoto2.jpeg";
 
 const HomePage = () => {
   return (
@@ -9,7 +9,7 @@ const HomePage = () => {
       <section class="home section active" id="home">
         <div class="container">
           <div class="intro">
-            <img src={personalPhoto} alt="profile" class="shadow-dark" />
+            <img src={personalPhoto2} alt="profile" class="shadow-dark" />
             <h1>Batool Saleh</h1>
             <p>Software Engineer</p>
             <div class="social">
