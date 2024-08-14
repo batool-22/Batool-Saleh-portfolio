@@ -1,10 +1,44 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./contact.css";
 import { motion } from "framer-motion";
+import emailjs from "@emailjs/browser";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const ContactPage = () => {
+const ContactPage = (props) => {
+  const { theme } = props;
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm("service_hs21ezi", "template_3yalrt5", form.current, {
+        publicKey: "oPOAeM_k5eQSXSw6O",
+      })
+      .then(
+        () => {
+          toast.success(`Successfully Sent!`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: theme,
+          });
+          console.log("Message Sent!");
+        },
+        (error) => {
+          console.log("FAILED...", error.text);
+        }
+      );
+  };
   return (
     <>
+      <ToastContainer />
+
       <section class="contact section" id="contact">
         <motion.div
           className="container"
@@ -51,7 +85,7 @@ const ContactPage = () => {
               </div>
 
               <div class="row">
-                <form class="contact-form padd-15">
+                <form class="contact-form padd-15" ref={form}>
                   <div class="row">
                     <div class="from-item col-6 padd-15">
                       <div class="form-group">
@@ -59,15 +93,17 @@ const ContactPage = () => {
                           type="text"
                           class="form-control"
                           placeholder="Name*"
+                          name="user_name"
                         />
                       </div>
                     </div>
                     <div class="from-item col-6 padd-15">
                       <div class="form-group">
                         <input
-                          type="text"
+                          type="email"
                           class="form-control"
                           placeholder="Email*"
+                          name="user_email"
                         />
                       </div>
                     </div>
@@ -79,6 +115,7 @@ const ContactPage = () => {
                           type="text"
                           class="form-control"
                           placeholder="Subject*"
+                          name="user_subject"
                         />
                       </div>
                     </div>
@@ -89,14 +126,15 @@ const ContactPage = () => {
                         <textarea
                           class="form-control"
                           placeholder=" Your Message ..."
+                          name="message"
                         ></textarea>
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-12 padd-15">
-                      <button type="submit" class="btn">
-                        Send Massage
+                      <button type="submit" class="btn" onClick={sendEmail}>
+                        Send Message
                       </button>
                     </div>
                   </div>

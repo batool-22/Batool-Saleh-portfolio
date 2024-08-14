@@ -6,7 +6,8 @@ import ProjectsPage from "../ProjectsPage/ProjectsPage";
 import ToolsPage from "../ToolsPage/ToolsPage";
 import ContactPage from "../ContactPage/ContactPage";
 
-const ProjectSections = () => {
+const ProjectSections = (props) => {
+  const { theme } = props;
   return (
     <>
       <Navbar />
@@ -15,7 +16,7 @@ const ProjectSections = () => {
         <AboutPage />
         <ProjectsPage />
         <ToolsPage />
-        <ContactPage />
+        <ContactPage theme={theme} />
       </div>
     </>
   );

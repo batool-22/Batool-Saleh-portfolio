@@ -17,7 +17,7 @@ function App() {
   return (
     <div className="App">
       <ParticleBg theme={theme} id="tsparticles" />
-      <ProjectSections />
+      <ProjectSections theme={theme} />
       {/* <div className={`preloader ${!isVisible ? "opacity-0" : ""}`}>
         {" "}
         <div class="loader"></div>
