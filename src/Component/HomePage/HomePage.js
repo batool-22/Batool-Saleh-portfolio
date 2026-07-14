@@ -25,10 +25,6 @@ const HomePage = () => {
 
       <div className="wrap home-inner">
         <motion.div className="home-copy" variants={container} initial="hide" animate="show">
-          <motion.span className="eyebrow" variants={item}>
-            <span className="dot" /> Available for new work
-          </motion.span>
-
           <motion.h1 className="home-name" variants={item}>
             Batool Saleh
           </motion.h1>
