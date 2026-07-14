@@ -1,187 +1,175 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import "./about.css";
 import { motion } from "framer-motion";
 import sattam2 from "../../assets/images/sattam2.png";
 import lendo from "../../assets/images/lendo.jpg";
 import axenda from "../../assets/images/axenda.png";
+import hailoLogo from "../../assets/images/HailoLogo.png";
 import Resume from "../../assets/images/Resume.pdf";
-import { init } from "ityped";
+
+const education = [
+  {
+    logo: sattam2,
+    date: "2018 — 2022",
+    role: "B.Sc. Software Engineering",
+    place: "Prince Sattam bin Abdulaziz University",
+  },
+];
+
+const experience = [
+  {
+    logo: hailoLogo,
+    date: "2026 — Present",
+    role: "Co-Founder",
+    place: "Hailo",
+    badge: "Building",
+  },
+  {
+    logo: lendo,
+    date: "2025 — Present",
+    role: "Software Engineer II",
+    place: "Lendo Financing",
+  },
+  {
+    logo: lendo,
+    date: "2022 — 2025",
+    role: "Software Engineer I",
+    place: "Lendo Financing",
+  },
+  {
+    logo: axenda,
+    date: "2021 — 2022",
+    role: "Software Engineer",
+    place: "Axenda",
+  },
+  {
+    logo: sattam2,
+    date: "2021 — 2022",
+    role: "Frontend Developer",
+    place: "Deanship of IT & Distance Learning",
+  },
+];
+
+const stats = [
+  { num: "6+", label: "Years of experience" },
+  { num: "10+", label: "Projects shipped" },
+  { num: "5+", label: "Production stacks" },
+];
+
+const reveal = {
+  hide: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 70, damping: 15 } },
+};
 
 export const AboutPage = () => {
-  const textRef = useRef();
-  useEffect(() => {
-    if (textRef.current && !textRef.current.itypedInitialized) {
-      textRef.current.itypedInitialized = true;
-      init(textRef.current, {
-        showCursor: true,
-        strings: ["Software Engineer", "Frontend Developer"],
-        backDelay: 1500,
-        loop: true,
-      });
-    }
-  }, []);
   return (
-    <>
-      <section class="about section" id="about">
+    <section className="about section" id="about">
+      <div className="wrap">
         <motion.div
-          className="container"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial="hide"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ show: { transition: { staggerChildren: 0.12 } } }}
         >
-          <motion.div
-            className="intro"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <div class="container">
-              <div class="row">
-                <div class="section-t padd-15 ">
-                  <h2>About Me</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="about-content padd-15">
-                  <div class="row">
-                    <div class="about-text padd-15">
-                      <h3>
-                        I'm Batool Saleh and <span ref={textRef}> </span>
-                      </h3>
-                      <p>
-                        I have a Bachelor's degree in Software Engineering with
-                        experience in many areas of technology, web programming
-                        , UI development , UI designer and I hope for more.
-                      </p>
-                    </div>
+          <motion.span className="eyebrow" variants={reveal}>
+            <span className="dot" /> About me
+          </motion.span>
+          <motion.h2 className="section-title" variants={reveal}>
+            A developer who loves the <em>details</em>
+          </motion.h2>
+
+          <div className="about-grid">
+            <motion.div className="about-bio" variants={reveal}>
+              <p>
+                I’m <strong>Batool Saleh</strong>, a Software Engineer with a
+                Bachelor’s degree in Software Engineering and a passion for
+                frontend. I’ve worked across web development, UI engineering and
+                UI design — and I’m always chasing the next thing to learn.
+              </p>
+              <p>
+                I care about accessible, performant interfaces that feel good to
+                use: smooth animations, thoughtful states, and pixel-tight
+                layouts.
+              </p>
+
+              <div className="about-stats">
+                {stats.map((s) => (
+                  <div className="stat" key={s.label}>
+                    <span className="stat-num">{s.num}</span>
+                    <span className="stat-label">{s.label}</span>
                   </div>
-                  <div class="row">
-                    <div class="personal padd-15">
-                      <h3 class="title">Education</h3>
-                      <div class="row">
-                        <div class="timeline-box padd-15">
-                          <div class="timeline shadow-dark">
-                            <div class="timeline-item-edu">
-                              <div className="timeline-item-content">
-                                <img
-                                  src={sattam2}
-                                  alt="profile"
-                                  class="shadow-dark timeline-image"
-                                />
-                                <div className="timeline-text-content">
-                                  <h6 class="timeline-date">
-                                    <i class="fa fa-calendar"></i> 2018-2022
-                                  </h6>
-                                  <h4 class="timeline-title">
-                                    Bachelor Degree, Software Engineering
-                                  </h4>
-                                  <p class="timeline-text">
-                                    Prince Sattam bin Abdulaziz University
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                ))}
+              </div>
+
+              <div className="about-actions">
+                <a href={Resume} className="btn magnetic" download="Batool Saleh Resume.pdf">
+                  <i className="fa fa-download" /> Download CV
+                </a>
+                <a href="#contact" className="btn ghost magnetic">
+                  Contact me
+                </a>
+              </div>
+            </motion.div>
+
+            <motion.div className="timeline" variants={reveal}>
+              <motion.h3 className="tl-milestone edu" variants={reveal}>
+                <span className="tl-mark">
+                  <i className="fa fa-graduation-cap" />
+                </span>
+                Education
+              </motion.h3>
+              {education.map((t, i) => (
+                <motion.div className="tl-item edu" key={`edu-${i}`} variants={reveal}>
+                  <span className="tl-node" />
+                  <div className="tl-content">
+                    <span className="tl-date">{t.date}</span>
+                    <div className="tl-row">
+                      <div className="tl-logo">
+                        <img src={t.logo} alt={t.place} />
                       </div>
-                      <div class="row">
-                        <div class="button padd-15">
-                          <a href={Resume} class="btn" download>
-                            Download CV
-                          </a>
-                          <a
-                            href="#contact"
-                            data-section-index="1"
-                            class="btn hire-me"
-                          >
-                            Contact me
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="exp padd-15">
-                      <h3 class="title align-left">Experience</h3>
-                      <div class="row">
-                        <div class="timeline-box padd-15">
-                          <div class="timeline shadow-dark">
-                            <div class="timeline-item">
-                              <div className="timeline-item-content">
-                                <div className="circle-dot">
-                                  <img
-                                    src={lendo}
-                                    alt="Lendo"
-                                    class="timeline-logo"
-                                  />
-                                </div>
-                              </div>
-                              <h6 class="timeline-date">
-                                <i class="fa fa-calendar align-left"></i>{" "}
-                                2022-Present
-                              </h6>
-                              <h4 class="timeline-title align-left">
-                                Fullstack Engineer
-                              </h4>
-                              <p class="timeline-text align-left">
-                                Lendo Financing
-                              </p>
-                            </div>
-
-                            <div class="timeline-item">
-                              <div className="timeline-item-content">
-                                <div className="circle-dot">
-                                  <img
-                                    src={axenda}
-                                    alt="Lendo"
-                                    class="timeline-logo"
-                                  />
-                                </div>
-                              </div>
-                              <h6 class="timeline-date">
-                                <i class="fa fa-calendar align-left"></i>{" "}
-                                2021-2022
-                              </h6>
-                              <h4 class="timeline-title align-left">
-                                Software Engineer
-                              </h4>
-                              <p class="timeline-text align-left">
-                                Axenda Company
-                              </p>
-                            </div>
-
-                            <div class="timeline-item">
-                              <div className="timeline-item-content">
-                                <div className="circle-dot">
-                                  <img
-                                    src={sattam2}
-                                    alt="Lendo"
-                                    class="timeline-logo"
-                                  />
-                                </div>
-                              </div>
-
-                              <h6 class="timeline-date">
-                                <i class="fa fa-calendar align-left"></i>{" "}
-                                2021-2022
-                              </h6>
-                              <h4 class="timeline-title align-left">
-                                Frontend Developer
-                              </h4>
-                              <p class="timeline-text align-left">
-                                Deanship of IT and Distance Learning
-                              </p>
-                            </div>
-                          </div>
-                        </div>
+                      <div className="tl-body">
+                        <h4>{t.role}</h4>
+                        <p>{t.place}</p>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
+                </motion.div>
+              ))}
+
+              <motion.h3 className="tl-milestone" variants={reveal}>
+                <span className="tl-mark">
+                  <i className="fa fa-briefcase" />
+                </span>
+                Experience
+              </motion.h3>
+              {experience.map((t, i) => (
+                <motion.div
+                  className={`tl-item ${i === experience.length - 1 ? "tl-last" : ""}`}
+                  key={`exp-${i}`}
+                  variants={reveal}
+                >
+                  <span className="tl-node" />
+                  <div className="tl-content">
+                    <span className="tl-date">{t.date}</span>
+                    <div className="tl-row">
+                      <div className="tl-logo">
+                        <img src={t.logo} alt={t.place} />
+                      </div>
+                      <div className="tl-body">
+                        <h4>
+                          {t.role}
+                          {t.badge && <span className="tl-badge">{t.badge}</span>}
+                        </h4>
+                        <p>{t.place}</p>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </div>
         </motion.div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };

@@ -2,123 +2,71 @@ import React from "react";
 import "./projects.css";
 import { motion } from "framer-motion";
 import Khotta3 from "../../assets/images/Khotta3.JPG";
-import Cooking3 from "../../assets/images/Cooking3.png";
+import Hailo from "../../assets/images/Hailo.png";
 import Consumer3 from "../../assets/images/Consumer3.png";
 import TenderHand from "../../assets/images/TenderHand.jpg";
 import Project2 from "../../assets/images/Project2.jpg";
 
+const projects = [
+  { title: "Hailo Apps", org: "Hospitality AI", kind: "Mobile Development", year: "2025", img: Hailo, tags: ["React Native", "AI"], imgPos: "center 24%" },
+  { title: "Lendo Portals", org: "Lendo Financing", kind: "Web Development", year: "2022", img: Consumer3, tags: ["React", "Tailwind"] },
+  { title: "Khotta App", org: "Axenda", kind: "UI / UX Design", year: "2021", img: Khotta3, tags: ["Figma", "Jira"] },
+  { title: "Hybrid Project Management Portal", org: "Project Management", kind: "Web Development", year: "2021", img: Project2, tags: ["Next.js", "Tailwind"] },
+  { title: "Tender Hands App", org: "Charity App", kind: "Mobile Development", year: "2020", img: TenderHand, tags: ["Flutter"] },
+];
+
+const ease = [0.22, 1, 0.36, 1];
+const reveal = {
+  hide: { opacity: 0, y: 20 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease } },
+};
+
 const ProjectsPage = () => {
   return (
-    <>
-      <section class="blog section" id="projects">
+    <section className="projects section" id="projects">
+      <div className="wrap">
         <motion.div
-          className="container"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
+          initial="hide"
+          whileInView="show"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{ show: { transition: { staggerChildren: 0.05 } } }}
         >
-          <motion.div
-            className="intro"
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.2 }}
-          >
-            <div class="container">
-              <div class="row">
-                <div class="section-t padd-15">
-                  <h2>Projects</h2>
-                </div>
-              </div>
-              <div class="row">
-                <div class="blog-item padd-15">
-                  <div class="blog-item-inner shadow-dark">
-                    <div class="blog-img">
-                      <img src={Consumer3} />
-                      <div class="blog-data">1 Aug 2022</div>
-                    </div>
-                    <div class="blog-info">
-                      <h4 class="blog-title">
-                        Consumer Portal | Lendo Financing
-                      </h4>
-                      <p class="blog-descrip">Web Development</p>
-                      <p class="blog-tags">
-                        Tags : <a href="#">React JS </a>,
-                        <a href=""> Bootstrap Css </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="blog-item padd-15">
-                  <div class="blog-item-inner shadow-dark">
-                    <div class="blog-img">
-                      <img src={Khotta3} />
-                      <div class="blog-data">8 Sep 2021</div>
-                    </div>
-                    <div class="blog-info">
-                      <h4 class="blog-title">Khotta App | Axenda</h4>
-                      <p class="blog-descrip">Web Designer</p>
-                      <p class="blog-tags">
-                        Tags : <a href="#">Figma </a>, <a href=""> Jira </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="blog-item padd-15">
-                  <div class="blog-item-inner shadow-dark">
-                    <div class="blog-img">
-                      <img src={Project2} />
-                      <div class="blog-data">4 Feb 2021</div>
-                    </div>
-                    <div class="blog-info">
-                      <h4 class="blog-title">
-                        Hybird Software Project Management
-                      </h4>
-                      <p class="blog-descrip">Web Development</p>
-                      <p class="blog-tags">
-                        Tags : <a href="#">Next JS </a>,
-                        <a href=""> Tailwind Css </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
+          <motion.span className="eyebrow" variants={reveal}>
+            <span className="dot" /> Selected work
+          </motion.span>
+          <motion.h2 className="section-title" variants={reveal}>
+            Things I’ve <em>shipped</em>
+          </motion.h2>
 
-                <div class="blog-item padd-15">
-                  <div class="blog-item-inner shadow-dark">
-                    <div class="blog-img">
-                      <img src={TenderHand} />
-                      <div class="blog-data">1 Nov 2020</div>
-                    </div>
-                    <div class="blog-info">
-                      <h4 class="blog-title">Tender Hands App</h4>
-                      <p class="blog-descrip">Web Development</p>
-                      <p class="blog-tags">
-                        Tags : <a href="#">Flutter</a>
-                      </p>
-                    </div>
-                  </div>
+          <div className="proj-list">
+            {projects.map((p) => (
+              <motion.article className="proj-item" key={p.title} variants={reveal}>
+                <div className="proj-thumb">
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    loading="lazy"
+                    style={p.imgPos ? { objectPosition: p.imgPos } : undefined}
+                  />
                 </div>
-                <div class="blog-item padd-15">
-                  <div class="blog-item-inner shadow-dark">
-                    <div class="blog-img">
-                      <img src={Cooking3} />
-                      <div class="blog-data">12 Aug 2020</div>
-                    </div>
-                    <div class="blog-info">
-                      <h4 class="blog-title">Cooking Website</h4>
-                      <p class="blog-descrip">Web Development</p>
-                      <p class="blog-tags">
-                        Tags : <a href="#">React JS </a>,
-                        <a href=""> Tailwind Css </a>
-                      </p>
-                    </div>
-                  </div>
+                <div className="proj-mid">
+                  <h3 className="proj-title">{p.title}</h3>
+                  <p className="proj-sub">
+                    {p.kind} <span className="proj-dot">·</span> {p.tags.join(", ")}
+                  </p>
                 </div>
-              </div>
-            </div>
-          </motion.div>
+                <div className="proj-end">
+                  <span className="proj-year">{p.year}</span>
+                  <span className="proj-arrow" aria-hidden="true">
+                    <i className="fa fa-arrow-right" />
+                  </span>
+                </div>
+              </motion.article>
+            ))}
+          </div>
         </motion.div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 

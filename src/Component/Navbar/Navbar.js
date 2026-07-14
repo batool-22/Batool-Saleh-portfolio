@@ -1,54 +1,73 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.css";
 
+const LINKS = [
+  { id: "home", label: "Home" },
+  { id: "about", label: "About" },
+  { id: "projects", label: "Work" },
+  { id: "tools", label: "Skills" },
+  { id: "contact", label: "Contact" },
+];
+
 const Navbar = () => {
-  const handleClick = () => {
-    const navbarSection = document.querySelector(".navbar-section");
-    const sections = document.querySelectorAll("section");
+  const [active, setActive] = useState("home");
+  const [open, setOpen] = useState(false);
 
-    if (navbarSection) {
-      navbarSection.classList.toggle("open");
-    } else {
-      console.error("Element .navbar-section not found");
-    }
+  useEffect(() => {
+    const sections = LINKS.map((l) => document.getElementById(l.id)).filter(
+      Boolean
+    );
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) setActive(e.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+    );
+    sections.forEach((s) => obs.observe(s));
+    return () => obs.disconnect();
+  }, []);
 
-    if (sections.length > 0) {
-      sections.forEach((section) => section.classList.toggle("open"));
-    } else {
-      console.error("No section elements found");
-    }
+  const go = (e, id) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setOpen(false);
   };
 
   return (
-    <div className="navbar-section" onClick={handleClick}>
-      <ul className="nav">
-        <li>
-          <a href="#home" className="active">
-            <i></i>Home
+    <header className="nav">
+      <a href="#home" className="nav-logo" onClick={(e) => go(e, "home")}>
+        <span className="nav-logo-text">Batool Saleh</span>
+      </a>
+
+      <nav className={`nav-pill ${open ? "open" : ""}`}>
+        {LINKS.map((l) => (
+          <a
+            key={l.id}
+            href={`#${l.id}`}
+            onClick={(e) => go(e, l.id)}
+            className={active === l.id ? "on" : ""}
+          >
+            {l.label}
           </a>
-        </li>
-        <li>
-          <a href="#about">
-            <i></i>About
-          </a>
-        </li>
-        <li>
-          <a href="#projects">
-            <i></i>Projects
-          </a>
-        </li>
-        <li>
-          <a href="#tools">
-            <i></i>Tools
-          </a>
-        </li>
-        <li>
-          <a href="#contact">
-            <i></i>Contact
-          </a>
-        </li>
-      </ul>
-    </div>
+        ))}
+      </nav>
+
+      <a href="#contact" className="nav-cta" onClick={(e) => go(e, "contact")}>
+        Let’s talk
+      </a>
+
+      <button
+        className={`nav-burger ${open ? "open" : ""}`}
+        aria-label="Menu"
+        onClick={() => setOpen((o) => !o)}
+      >
+        <span />
+        <span />
+        <span />
+      </button>
+    </header>
   );
 };
 
