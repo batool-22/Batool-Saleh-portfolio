@@ -343,10 +343,19 @@
     text-align: center;
   }
   .home-copy {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     order: 2;
+  }
+  .home-name,
+  .home-role,
+  .home-blurb,
+  .home-actions,
+  .home-social {
+    width: 100%;
+  }
+  .home-role,
+  .home-actions,
+  .home-social {
+    justify-content: center;
   }
   .home-blurb {
     margin-left: auto;
