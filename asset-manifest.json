@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cdc30258.css",
-    "main.js": "/static/js/main.045d611a.js",
+    "main.js": "/static/js/main.3c750d3d.js",
     "static/js/453.75798e85.chunk.js": "/static/js/453.75798e85.chunk.js",
     "static/media/HailoLogo.png": "/static/media/HailoLogo.ea55c6a2efc476738791.png",
     "static/media/Hailo.png": "/static/media/Hailo.189dfbb8798e22130087.png",
@@ -15,11 +15,11 @@
     "static/media/react-query.png": "/static/media/react-query.44b0741da0239ba5838a.png",
     "index.html": "/index.html",
     "main.cdc30258.css.map": "/static/css/main.cdc30258.css.map",
-    "main.045d611a.js.map": "/static/js/main.045d611a.js.map",
+    "main.3c750d3d.js.map": "/static/js/main.3c750d3d.js.map",
     "453.75798e85.chunk.js.map": "/static/js/453.75798e85.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.cdc30258.css",
-    "static/js/main.045d611a.js"
+    "static/js/main.3c750d3d.js"
   ]
 }
